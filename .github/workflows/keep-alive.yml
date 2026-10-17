@@ -10,12 +10,9 @@ jobs:
   ping-supabase:
     runs-on: ubuntu-latest
     steps:
-      - name: Ping Supabase REST API
+      - name: Ping Supabase Database
         run: |
-          echo "Testando endpoint de Saude (Health)..."
-          curl -i "${{ secrets.SUPABASE_URL }}/auth/v1/health"
-
-          echo -e "\n\nTestando API REST com autenticacao..."
-          curl -i -X GET "${{ secrets.SUPABASE_URL }}/rest/v1/" \
+          echo "Consultando tabela keepalive no Supabase..."
+          curl -i -X GET "${{ secrets.SUPABASE_URL }}/rest/v1/keepalive?select=*&limit=1" \
             -H "apikey: ${{ secrets.SUPABASE_KEY }}" \
             -H "Authorization: Bearer ${{ secrets.SUPABASE_KEY }}"
