@@ -1,0 +1,234 @@
+{
+  "Output (<%= %>)": {
+    "scope": "asp,html",
+    "prefix": "out",
+    "body": [
+      "<%=$0%>"
+    ],
+    "description": "Classic ASP output tag"
+  },
+  "For Next": {
+    "scope": "asp",
+    "prefix": "for",
+    "body": [
+      "For $1 To $2 ${3:Step 1}",
+      "\t${4:' body}",
+      "Next"
+    ],
+    "description": "For . To . Next loop"
+  },
+  "For In": {
+    "scope": "asp",
+    "prefix": "forin",
+    "body": [
+      "For $1 In $2",
+      "\t${3:' body}",
+      "Next"
+    ],
+    "description": "For . In . Next loop"
+  },
+  "If Else": {
+    "scope": "asp",
+    "prefix": "if",
+    "body": [
+      "If ${1:condition} Then",
+      "\t${2:' true}",
+      "Else",
+      "\t${3:' false}",
+      "End If"
+    ],
+    "description": "If ... Else ... End If"
+  },
+  "While Loop": {
+    "scope": "asp",
+    "prefix": "while",
+    "body": [
+      "While ${1:condition}",
+      "\t${2:' body}",
+      "Wend"
+    ],
+    "description": "While ... Wend loop"
+  },
+  "Do While Loop": {
+    "scope": "asp",
+    "prefix": "dowhile",
+    "body": [
+      "Do While ${1:condition}",
+      "\t${2:' body}",
+      "Loop"
+    ],
+    "description": "Do While ... Loop"
+  },
+  "Do Until Loop": {
+    "scope": "asp",
+    "prefix": "dountil",
+    "body": [
+      "Do Until ${1:condition}",
+      "\t${2:' body}",
+      "Loop"
+    ],
+    "description": "Do Until ... Loop"
+  },
+  "Select Case": {
+    "scope": "asp",
+    "prefix": "sel",
+    "body": [
+      "Select Case ${1:variable}",
+      "\tCase ${2:condition}",
+      "\t\t${3:' Do Something}",
+      "End Select"
+    ],
+    "description": "Select Case"
+  },
+  "Case": {
+    "scope": "asp",
+    "prefix": "case",
+    "body": [
+      "Case ${1:condition}",
+      "\t${2:' Do Something}"
+    ],
+    "description": "Case"
+  },
+  "Sub Routine": {
+    "scope": "asp",
+    "prefix": "sub",
+    "body": [
+      "Sub ${1:name}()",
+      "\t${2:' Do Something...}",
+      "End Sub"
+    ],
+    "description": "Sub Routine"
+  },
+  "Function": {
+    "scope": "asp",
+    "prefix": "fun",
+    "body": [
+      "${1|Public,Private|} Function ${2:name}()",
+      "\t${3:' Do Something...}",
+      "End Function"
+    ],
+    "description": "Function"
+  },
+  "Include": {
+    "scope": "asp,html",
+    "prefix": "inc",
+    "body": [
+      "<!--#include ${1|file,virtual|}=\"${2:filePath}\"-->"
+    ],
+    "description": "Server-side include"
+  },
+  "Request": {
+    "scope": "asp",
+    "prefix": "req",
+    "body": [
+      "Request"
+    ],
+    "description": "Request object"
+  },
+  "Request.Form": {
+    "scope": "asp",
+    "prefix": "reqf",
+    "body": [
+      "Request.Form(\"${1:field}\")"
+    ],
+    "description": "Request.Form"
+  },
+  "Request.QueryString": {
+    "scope": "asp",
+    "prefix": "qs",
+    "body": [
+      "Request.QueryString(\"${1:name}\")"
+    ],
+    "description": "Request.QueryString"
+  },
+  "Response": {
+    "scope": "asp",
+    "prefix": "res",
+    "body": [
+      "Response"
+    ],
+    "description": "Response object"
+  },
+  "Response.Write": {
+    "scope": "asp",
+    "prefix": "wr",
+    "body": [
+      "Response.Write ${1:\"text\"}"
+    ],
+    "description": "Response.Write"
+  },
+  "Response.Redirect": {
+    "scope": "asp",
+    "prefix": "ri",
+    "body": [
+      "Response.Redirect(${1:\"url\"})"
+    ],
+    "description": "Response.Redirect"
+  },
+  "Cookie": {
+    "scope": "asp",
+    "prefix": "cook",
+    "body": [
+      "Response.Cookies(\"${1:name}\")"
+    ],
+    "description": "Response.Cookies"
+  },
+  "Application": {
+    "scope": "asp",
+    "prefix": "app",
+    "body": [
+      "Application(\"${1:name}\")"
+    ],
+    "description": "Application variable"
+  },
+  "Session": {
+    "scope": "asp",
+    "prefix": "sess",
+    "body": [
+      "Session(\"${1:name}\")"
+    ],
+    "description": "Session variable"
+  },
+  "Server.CreateObject": {
+    "scope": "asp",
+    "prefix": "obj",
+    "body": [
+      "Server.CreateObject(\"${1:progId}\")"
+    ],
+    "description": "Server.CreateObject"
+  },
+  "Set Database Connection": {
+    "scope": "asp",
+    "prefix": "dbcon",
+    "body": [
+      "Set ${1:conn} = Server.CreateObject(\"ADODB.Connection\")",
+      "${1:conn}.Open \"${2:Connection_String}\"",
+      "${3}",
+      "${1:conn}.Close",
+      "Set ${1:conn} = Nothing"
+    ],
+    "description": "Set ADODB.Connection"
+  },
+  "Set RecordSet": {
+    "scope": "asp",
+    "prefix": "rs",
+    "body": [
+      "Set ${1:rs} = Server.CreateObject(\"ADODB.Recordset\")",
+      "${1:rs}.Open \"${2:SQL_QUERY}\", ${3:conn}",
+      "${4}",
+      "${1:rs}.Close",
+      "Set ${1:rs} = Nothing"
+    ],
+    "description": "Set ADODB.Recordset"
+  },
+  "Class": {
+    "scope": "asp",
+    "prefix": "class",
+    "body": [
+      "Class ${1:ClassName}",
+      "\t${2:' Add properties and methods}",
+      "End Class"
+    ],
+    "description": "Class"
+  }
+}

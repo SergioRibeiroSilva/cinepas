@@ -1,0 +1,279 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* O fundo escuro de cinema clássico foi levemente avermelhado com a temática clássica de tapetes de cinema e cadeiras aveludadas */
+body {
+    background-color: #1b3256;
+    color: #e0e0e0;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+}
+
+/* Barra de Navegação (Menu Superior) */
+/* Existe para permitir que os usuários não se percam, trazendo atalhos fáceis. O uso da cor bordô (dark red) remete fortemente às cortinas tradicionais de teatros/cinemas. */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #0d1b2a;
+    padding: 1rem 3rem;
+    border-bottom: 2px solid #e42c2d; /* Cor que lembra tapete vermelho */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Cinzel', serif;
+    font-size: 1.6rem;
+    color: #fff;
+    font-weight: 700;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #aaa;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: color 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: #e42c2d;
+    text-shadow: 0 0 10px rgba(228, 44, 45, 0.4);
+}
+
+/* Moldura de Rolo de Filme (Film Strip) */
+/* Este detalhe estético existe puramente para criar o "clima" (mood) de cinema antigo ou películas cinematográficas usando apenas puro CSS. */
+.film-strip {
+    height: 30px;
+    background: #0d1b2a;
+    position: relative;
+    border-top: 2px solid #1e3b63;
+    border-bottom: 2px solid #1e3b63;
+    display: flex;
+    align-items: center;
+}
+
+/* As bolinhas brancas imitam os furos nas laterais dos antigos rolos de filme. */
+.film-strip::before {
+    content: "";
+    width: 100%;
+    height: 10px;
+    background-image: radial-gradient(circle, #ddd 3px, transparent 4px);
+    background-size: 30px 10px; /* Repete a bolinha horizontalmente */
+    background-position: center;
+}
+
+/* Estilo da seção hero */
+.hero {
+    min-height: 35vh;
+    padding: 2.5rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: radial-gradient(circle at center, #11233e 0%, #1b3256 100%);
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Estilo específico para a logo dentro do banner. */
+/* Existe para garantir que a imagem não quebre o layout, tenha tamanho proporcional e receba um efeito sutil de iluminação que case com as letras douradas. */
+.hero-logo {
+    width: 122px;
+    height: auto;
+    margin-bottom: 1rem;
+    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.4));
+    transition: transform 0.4s ease;
+}
+
+.hero-logo:hover {
+    transform: scale(1.08) rotate(-3deg);
+    filter: drop-shadow(0 0 25px rgba(255, 255, 255, 0.8));
+}
+
+.hero-content h1 {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    color: #ffffff; /* Amarelo ouro, típico de prêmios como o Oscar */
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-shadow: 0 4px 6px rgba(13, 27, 42, 0.8);
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-top: 10px;
+    color: #ccc;
+    max-width: 1000px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+    gap: 3rem;
+    padding: 4rem 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* O cartão com moldura de tela de cinema */
+/* A classe 'cinema-screen' transforma os cantos dos cards para lembrarem as telas enormes, ou claquetes gordinhas. */
+.movie-card {
+    background: #1e3b63;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    border: 4px solid #2e599b;
+    border-bottom-width: 12px; /* Dá a sensação do painel inferior de uma claquete */
+}
+
+.movie-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(49, 92, 153, 0.3);
+    border-color: #4372ba;
+    border-bottom-color: #e42c2d;
+}
+
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    background-color: #0d1b2a;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-bottom: 2px solid #e42c2d;
+}
+
+.card-info {
+    padding: 1.8rem;
+    text-align: center;
+    background: repeating-linear-gradient(
+      45deg,
+      #1e3b63,
+      #1e3b63 10px,
+      #1b3256 10px,
+      #1b3256 20px
+    ); /* Listras muito suaves no fundo do cartão para dar textura texturizada */
+}
+
+.card-info h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.4rem;
+    color: #fff;
+    margin-bottom: 1.5rem;
+    letter-spacing: 1px;
+}
+
+/* Botão de votação no formato de Ticket de Cinema */
+/* Este visual emula um bilhete de cinema antigo ou um ingresso VIP, reforçando fortemente a temática. */
+.vote-btn.ticket {
+    background-color: #315c99; /* Ouro Oscar */
+    color: #fff;
+    border: 2px dashed #fff;
+    padding: 10px 20px;
+    font-size: 0.95rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    position: relative;
+    box-shadow: 2px 2px 5px rgba(13, 27, 42, 0.5);
+}
+
+.vote-btn.ticket::before, .vote-btn.ticket::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 16px;
+    height: 16px;
+    background-color: #1e3b63;
+    border-radius: 50%;
+    transform: translateY(-50%);
+}
+
+.vote-btn.ticket::before {
+    left: -10px;
+}
+
+.vote-btn.ticket::after {
+    right: -10px;
+}
+
+.vote-btn.ticket:hover {
+    background-color: #fff;
+    color: #e42c2d;
+    border-color: #e42c2d;
+    transform: scale(1.03) rotate(-1deg);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+}
+
+.ticket-text {
+    display: block;
+    line-height: 1.4;
+}
+
+/* Responsividade (Mobile e Tablets) */
+/* Existem para garantir que a experiência premium não seja quebrada em telas pequenas. Ajusta margens, fontes e o layout do menu para caber em celulares. */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 1rem;
+        gap: 15px;
+    }
+
+    .nav-links {
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero {
+        height: auto;
+        padding: 3rem 1rem;
+    }
+
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero-logo {
+        width: 90px;
+    }
+
+    .gallery {
+        padding: 2rem 1rem;
+        gap: 2rem;
+    }
+}

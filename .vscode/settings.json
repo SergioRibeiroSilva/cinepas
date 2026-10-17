@@ -1,0 +1,8 @@
+{
+  "files.encoding": "windows1252",
+  "files.associations": {
+    "*.asp": "asp",
+    "*.inc": "asp",
+    "*.asa": "asp"
+  }
+}
