@@ -1,10 +1,9 @@
-name: Supabase Keep-Alive
+﻿name: Supabase Keep-Alive
 
 on:
   schedule:
-    # Executa todos os dias às 06:00 UTC (03:00 no horário de Brasília)
+    # Executa todos os dias às 06:00 UTC (03:00 de Brasília)
     - cron: '0 6 * * *'
-  # Permite disparar manualmente pela aba "Actions" para testar
   workflow_dispatch:
 
 jobs:
@@ -13,7 +12,10 @@ jobs:
     steps:
       - name: Ping Supabase REST API
         run: |
-          curl -s -o /dev/null -w "%{http_code}\n" \
-            -X GET "${{ secrets.SUPABASE_URL }}/rest/v1/" \
+          echo "Testando endpoint de Saude (Health)..."
+          curl -i "${{ secrets.SUPABASE_URL }}/auth/v1/health"
+
+          echo -e "\n\nTestando API REST com autenticacao..."
+          curl -i -X GET "${{ secrets.SUPABASE_URL }}/rest/v1/" \
             -H "apikey: ${{ secrets.SUPABASE_KEY }}" \
             -H "Authorization: Bearer ${{ secrets.SUPABASE_KEY }}"
